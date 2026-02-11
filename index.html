@@ -18,13 +18,26 @@
   }
   </script>
   <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
     .container {
       font-family: sans-serif;
       text-align: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #app {
+      flex: 1;
     }
 
     .excalidraw-wrapper {
-      margin: 0px;
+      width: 100%;
+      height: 100%;
       position: relative;
     }
 
@@ -83,13 +96,16 @@
         const response = await fetch("https://bitcoin-noc.github.io/map-of-bitcoin-monitoring/map.excalidraw");
         const data = await response.json();
 
+        console.log(data)
+
         if (data.files) {
           excalidrawAPI.addFiles(data.files);
+          console.log(data.files)
         }
 
         excalidrawAPI.updateScene({
           elements: data.elements,
-          appState: data.appState || {},
+          appState: data.appState,
           files: data.files,
         });
       };
