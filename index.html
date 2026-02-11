@@ -80,7 +80,7 @@
       if (!excalidrawAPI) return;
 
       const load = async () => {
-        const response = await fetch("https://raw.githubusercontent.com/bitcoin-noc/map-of-bitcoin-monitoring/refs/heads/main/map-of-bitcoin-monitoring.excalidraw");
+        const response = await fetch("https://bitcoin-noc.github.io/map-of-bitcoin-monitoring/map.excalidraw");
         const data = await response.json();
 
         if (data.files) {
